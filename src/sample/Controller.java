@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Controller {
 
-    private List<String> options = Arrays.asList("Rock", "Paper", "Scissor");
+    private static List<String> options = Arrays.asList("Rock", "Paper", "Scissor");
 
     @FXML
     private Button rockBtn;
@@ -31,19 +31,27 @@ public class Controller {
     @FXML
     void hitRock(ActionEvent event) {
         userPick.setText(options.get(0));
+        computerPick.setText(generateRandomPick());
     }
 
     @FXML
     void hitPaper(ActionEvent event) {
         System.out.println("You chose paper!");
         userPick.setText(options.get(1));
+        computerPick.setText(generateRandomPick());
 
     }
 
     @FXML
     void hitScissor(ActionEvent event) {
         userPick.setText(options.get(2));
+        computerPick.setText(generateRandomPick());
 
+    }
+
+    public static String generateRandomPick(){
+        int rnd = (int) (3.0  *  Math.random());
+        return options.get(rnd);
     }
 
 }
